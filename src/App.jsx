@@ -1,18 +1,24 @@
-import React from 'react';
-import talents from './data/talents';
-import TalentCard from './components/TalentCard';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import AddTalent from "./components/AddTalent";
+import Talents from "./components/Talents";
 
 function App() {
   return (
-    <div className="App">
-      <h1>תצוגת כישרונות</h1>
-      <div className="talent-list">
-        {talents.map(talent => (
-          <TalentCard key={talent.id} talent={talent} />
-        ))}
-      </div>
-    </div>
+    <Router>
+      <nav style={{ padding: "1rem", background: "#222", color: "#fff" }}>
+        <Link to="/" style={{ marginRight: "1rem", color: "#fff" }}>בית</Link>
+        <Link to="/add" style={{ marginRight: "1rem", color: "#fff" }}>הוסף כישרון</Link>
+        <Link to="/talents" style={{ marginRight: "1rem", color: "#fff" }}>כל הכישרונות</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/add" element={<AddTalent />} />
+        <Route path="/talents" element={<Talents />} />
+      </Routes>
+    </Router>
   );
 }
 
