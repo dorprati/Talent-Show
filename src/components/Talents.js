@@ -15,13 +15,20 @@ const talents = [
 
 function Talents() {
     return (
-        <div>
-            <h1>כל הכישרונות</h1>
-            <ul>
+        <div className="min-h-screen bg-gray-100 py-10 px-4">
+            <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">
+                כל הכישרונות
+            </h1>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                 {talents.map(talent => (
-                    <li key={talent.id}>
-                        <h2>{talent.name}</h2>
-                        <p>{talent.description}</p>
+                    <li
+                        key={talent.id}
+                        className="bg-white shadow-md rounded-2xl p-6 hover:shadow-xl transition duration-300"
+                    >
+                        <h2 className="text-xl font-semibold text-indigo-600 mb-2 text-right">
+                            {talent.name}
+                        </h2>
+                        <p className="text-gray-600 text-right">{talent.description}</p>
                     </li>
                 ))}
             </ul>
